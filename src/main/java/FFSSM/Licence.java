@@ -55,7 +55,7 @@ public class Licence implements Comparable<Licence> {
     }
     public boolean estValide(LocalDate d) {
         boolean estValide = false;
-        if (d.isBefore(this.delivrance.plusYears(1)) || d.isEqual(this.delivrance)) {
+        if ((d.isBefore(this.delivrance.plusYears(1)) && d.isAfter(this.delivrance)) || d.isEqual(this.delivrance)) {
             estValide = true;
         }
         return estValide;

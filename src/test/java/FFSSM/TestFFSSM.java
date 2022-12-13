@@ -22,6 +22,10 @@ public class TestFFSSM {
 
     Moniteur moniteur2;
 
+    Plongee plongee;
+
+    Site site;
+
     @BeforeEach
     public void setUp() {
         bastide = new Personne("1 05 36 47", "Bastide", "Rémis", "568 Rue des Voilliers", null, null);
@@ -31,6 +35,8 @@ public class TestFFSSM {
         embauche = new Embauche(LocalDate.of(2022, 10, 14), moniteur, Bayonne);
         moniteur = new Moniteur("1 88 66 51", "Martin", "Jérôme", null, null, null, 5, 26024);
         moniteur2 = new Moniteur("1 86 67 55", "Leroy", "Guillaume", null, null, null, 3, 10256);
+        site = new Site("Pic du Nord de Bayonne", null);
+        plongee = new Plongee(site, moniteur, LocalDate.of(2022, 3, 26), 25, 50);
     }
 
     @Test
@@ -48,7 +54,10 @@ public class TestFFSSM {
         assertSame(Bayonne, moniteur.employeurActuel().get());
     }
 
-
+    @Test
+    public void testPlongeeValide() {
+        assertTrue(plongee.estConforme());
+    }
 
 
 }

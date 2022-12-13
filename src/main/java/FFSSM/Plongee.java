@@ -9,15 +9,15 @@ import java.util.Set;
 
 public class Plongee {
 
-	public Site lieu;
+	private Site lieu;
 
-	public Moniteur chefDePalanquee;
+	private Moniteur chefDePalanquee;
 
-	public LocalDate date;
+	private LocalDate date;
 
-	public int profondeur;
+	private int profondeur;
 
-	public int duree;
+	private int duree;
 
 	public Plongee(Site lieu, Moniteur chefDePalanquee, LocalDate date, int profondeur, int duree) {
 		this.lieu = lieu;

@@ -9,17 +9,21 @@ import java.util.Set;
 public class Club {
 
  
-    public Moniteur president;
+    private Moniteur president;
 
-    public String nom;
+    private Embauche embauche;
+    private String nom;
 
-    public String adresse;
+    private String adresse;
 
-    public String telephone;
+    private String telephone;
 
-    public Club(Moniteur président, String nom, String telephone) {
+
+
+    public Club(Moniteur président, String nom, String adresse, String telephone) {
         this.president = président;
         this.nom = nom;
+        this.adresse = adresse;
         this.telephone = telephone;
     }
 
@@ -78,7 +82,7 @@ public class Club {
 
     @Override
     public String toString() {
-        return "Club{" + "président=" + president + ", nom=" + nom + ", adresse=" + adresse + ", telephone=" + telephone + '}';
+        return "Club{" + "président = " + president + ", nom = " + nom + ", adresse = " + adresse + ", telephone = " + telephone + "\n";
     }
 
 }

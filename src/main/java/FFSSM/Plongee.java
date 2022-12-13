@@ -6,6 +6,7 @@ package FFSSM;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public class Plongee {
@@ -29,6 +30,19 @@ public class Plongee {
 		this.profondeur = profondeur;
 		this.duree = duree;
 		this.lesLicences = new ArrayList<>();
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		Plongee plongee = (Plongee) o;
+		return profondeur == plongee.profondeur && duree == plongee.duree && Objects.equals(lieu, plongee.lieu) && Objects.equals(chefDePalanquee, plongee.chefDePalanquee) && Objects.equals(date, plongee.date) && Objects.equals(lesLicences, plongee.lesLicences);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(lieu, chefDePalanquee, date, profondeur, duree, lesLicences);
 	}
 
 	public void ajouteParticipant(Plongeur participant) {

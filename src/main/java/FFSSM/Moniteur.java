@@ -28,7 +28,7 @@ public class Moniteur extends Plongeur {
      */
     public Optional<Club> employeurActuel() {
         Optional<Club> op;
-        if (!lesEmbauches.isEmpty()) {
+        if (lesEmbauches.isEmpty()) {
             op = Optional.empty();
         }
         else {

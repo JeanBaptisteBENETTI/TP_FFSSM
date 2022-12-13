@@ -12,13 +12,13 @@ public class Moniteur extends Plongeur {
 
     private int numeroDiplome;
 
-    private ArrayList<Embauche> lesEmbauche;
+    private ArrayList<Embauche> lesEmbauches;
 
 
     public Moniteur(String numeroINSEE, String nom, String prenom, String adresse, String telephone, LocalDate naissance, int niveau, int numeroDiplome) {
         super(numeroINSEE, nom, prenom, adresse, telephone, naissance, niveau);
         this.numeroDiplome = numeroDiplome;
-        lesEmbauche = new ArrayList<>();
+        lesEmbauches = new ArrayList<>();
     }
 
     /**
@@ -28,11 +28,11 @@ public class Moniteur extends Plongeur {
      */
     public Optional<Club> employeurActuel() {
         Optional<Club> op;
-        if (!lesEmbauche.isEmpty()) {
+        if (!lesEmbauches.isEmpty()) {
             op = Optional.empty();
         }
         else {
-            op = Optional.ofNullable(lesEmbauche.get(lesEmbauche.size() - 1).getEmployeur());
+            op = Optional.ofNullable(lesEmbauches.get(lesEmbauches.size() - 1).getEmployeur());
         }
         return op;
     }
@@ -43,13 +43,11 @@ public class Moniteur extends Plongeur {
      * @param debutNouvelle la date de début de l'embauche
      */
     public void nouvelleEmbauche(Club employeur, LocalDate debutNouvelle) {   
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");	    
+        this.lesEmbauches.add(new Embauche(debutNouvelle, this, employeur));
     }
 
     public List<Embauche> emplois() {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+         return lesEmbauches;
     }
 
 }
